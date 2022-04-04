@@ -8,11 +8,10 @@ class Article:
         self.link = link
 
     def __str__(self):
-        return f'{self.title}: {self.link}'
+        return f'{self.title}:\n\t\t{self.body}\n\t\t{self.link}'
 
     def parse(self, other_article) -> bool:
-        return similarity_title(self.title, other_article.title) > 20 \
-               or similarity_body(self.body, other_article.body) > 15
+        return similarity_title(self.title, other_article.title) > 20
 
 
 # art1 = Article('Russia bombs Ukraine', 'Tension increases in russia as ...', 'www.nytimes.com/russia')

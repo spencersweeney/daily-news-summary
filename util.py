@@ -13,7 +13,6 @@ def similarity_title(str1, str2) -> int:
 
     return int((len(union) / min(len(words_in_str1), len(words_in_str2))) * 100)
 
-
 # print(similarity_title('Hello World', 'Hello World'))
 # print(similarity_title('Hello World', 'hello world'))
 # print(similarity_title('Hello World', 'Hello World Spencer'))
