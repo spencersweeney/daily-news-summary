@@ -8,16 +8,13 @@ class Article:
         self.link = link
 
     def __str__(self):
-        return f'{self.title}:\n\t\t{self.body}\n\t\t{self.link}'
+        return f'{self.title}:\n\t\t{self.link}'
 
     def parse(self, other_article) -> bool:
-        return similarity_title(self.title, other_article.title) > 20
+        """
+        decides whether the articles are about the same topic or not
+        :param other_article: the article to compare this one to
+        :return: boolean value of whether the articles are about the same topic or not
+        """
+        return similarity_title(self.title, other_article.title) > 25
 
-
-# art1 = Article('Russia bombs Ukraine', 'Tension increases in russia as ...', 'www.nytimes.com/russia')
-# art2 = Article('Russia attacks Ukraine', 'Tension increases in russia as ...', 'www.wsj.com/russia')
-#
-# art3 = Article('Smith slaps Rock', 'Will Smith slapped Chris Rock ...', 'www.nytimes.com/oscars')
-#
-# print(art1.parse(art2))
-# print(art1.parse(art3))
