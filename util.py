@@ -2,9 +2,10 @@
 import smtplib
 import string
 from email.message import EmailMessage
+from group_of_articles import GroupOfArticles
 
 
-def similarity(str1, str2) -> int:
+def similarity(str1: str, str2: str) -> int:
     """
     find the similarity of two strings (phrases)
     :param str1: the first string (phrase)
@@ -30,7 +31,7 @@ def similarity(str1, str2) -> int:
     return int((len(union) / max(len(remove_common_words1), len(remove_common_words2))) * 100)
 
 
-def send_email(receiver, articles):
+def send_email(receiver: str, articles: GroupOfArticles):
     """
     sends an email to the given receiver with the message being the given articles
     :param receiver: the person to send the email to
