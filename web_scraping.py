@@ -18,6 +18,5 @@ def get_articles(url) -> [Article]:
     articles = []
     for article in webpage_news:
         articles.append(Article(article.get_text(': '),
-                                article.find_all('span', class_='WSJTheme--summaryText--2LRaCWgJ'),
                                 article.find('a').get('href')))
     return articles

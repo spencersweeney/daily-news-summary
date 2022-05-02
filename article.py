@@ -1,20 +1,24 @@
-from util import similarity_title
+from util import similarity
 
 
 class Article:
-    def __init__(self, title: str, body: str, link: str):
+    def __init__(self, title: str, link: str):
         self.title = title
-        self.body = body
         self.link = link
 
     def __str__(self):
         return f'{self.title}:\n\t\t{self.link}'
 
-    def parse(self, other_article) -> bool:
+    def parse(self, other_article) -> int:
         """
-        decides whether the articles are about the same topic or not
+        decides whether the articles are the same, about the same topic, or not about the same topic
         :param other_article: the article to compare this one to
-        :return: boolean value of whether the articles are about the same topic or not
+        :return: 0: articles are the same 1: articles are about the same topic 2: articles are about different topics
         """
-        return similarity_title(self.title, other_article.title) > 25
-
+        similarity_of_titles = similarity(self.title, other_article.title)
+        if similarity_of_titles == 100:
+            return 0
+        elif similarity_of_titles > 20:
+            return 1
+        else:
+            return 2

@@ -4,7 +4,7 @@ import string
 from email.message import EmailMessage
 
 
-def similarity_title(str1, str2) -> int:
+def similarity(str1, str2) -> int:
     """
     find the similarity of two strings (phrases)
     :param str1: the first string (phrase)
@@ -14,7 +14,7 @@ def similarity_title(str1, str2) -> int:
     clean_text1 = ''.join([char.lower() for char in str1 if char not in string.punctuation])
     clean_text2 = ''.join([char.lower() for char in str2 if char not in string.punctuation])
 
-    with open('common_words.txt') as f:
+    with open('/Users/spencersweeney/Desktop/EECE2140/daily_news_summary/common_words.txt') as f:
         common_words = []
         for line in f:
             common_words.append(line.strip('\n'))
@@ -42,7 +42,7 @@ def send_email(receiver, articles):
         smtp.starttls()
         smtp.ehlo()
 
-        smtp.login('dailynewssummarizer@gmail.com', 'Hogwarts427')
+        smtp.login('dailynewssummarizer@gmail.com', 'EECE2140')
 
         msg = EmailMessage()
         msg['Subject'] = 'Your Daily News Summary'
