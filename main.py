@@ -2,7 +2,7 @@ import pickle
 from group_of_articles import GroupOfArticles
 from util import send_email
 
-mailing_list = ['spencersweeney427@gmail.com', 'wertheim.m@northeastern.edu', 'baron.br@northeastern.edu']
+mailing_list = ['spencersweeney427@gmail.com']
 
 with open('/Users/spencersweeney/Desktop/EECE2140/daily_news_summary/articles.dat', 'rb') as f:
     articles = pickle.load(f)
